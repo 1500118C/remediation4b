@@ -111,7 +111,7 @@ if [ -e "cron.deny" ]; then
    printf "\e[32m /etc/at.deny has been removed\e[0m\n"
     /bin/rm /etc/cron.deny
 else
-     printf "\e[32mNo remediation Needed\e[0m\n"
+     printf "\e[32mNo remediation needed\e[0m\n"
 fi
 
 printf "Checking if /etc/at.deny has been removed:\n"
@@ -119,11 +119,11 @@ if [ -e "at.deny" ]; then
     printf "\e[32m /etc/at.deny has been removed\e[0m\n"
     /bin/rm /etc/at.deny
 else
-    printf "\e[32mNo remediation Needed\e[0m\n"
+    printf "\e[32mNo remediation needed\e[0m\n"
 fi
 
 if [ -e "cron.allow" ]; then
-     printf "\e[32mNo remediation Needed\e[0m\n"
+     printf "\e[32mNo remediation needed\e[0m\n"
 else
     touch /etc/cron.allow
      printf "\e[32m /etc/cron.allow has been created\e[0m\n"
@@ -132,7 +132,7 @@ fi
 
 printf "Checking if /etc/cron.allow has changed restrictions:\n"
 if ls -l /etc/cron.allow | grep -e "-rw-------" ; then
-     printf "\e[32mNo remediation Needed\e[0m\n"
+     printf "\e[32mNo remediation needed\e[0m\n"
 else
     chown root:root /etc/cron.allow
     chmod og-rwx /etc/cron.allow
@@ -140,7 +140,7 @@ else
 fi
 
 if [ -e "at.allow" ]; then
-    printf "\e[32mNo remediation Needed\e[0m\n"
+    printf "\e[32mNo remediation needed\e[0m\n"
 else
     touch /etc/at.allow
     printf "\e[32m /etc/at.allow has been created\e[0m\n"
@@ -149,7 +149,7 @@ fi
 
 printf "Checking if /etc/at.allow has changed restrictions:\n"
 if ls -l /etc/at.allow | grep -e "-rw-------" ; then
-    printf "\e[32mNo remediation Needed\e[0m\n"
+    printf "\e[32mNo remediation needed\e[0m\n"
 else
     chown root:root /etc/at.allow
     chmod og-rwx /etc/at.allow
@@ -160,7 +160,7 @@ fi
 #10.1 Set SSH Protocol to 2
 printf "Checking if SSH Protocol is set to 2:\n"
 if grep "^Protocol[[:space:]]2" "/etc/ssh/sshd_config"; then 
-    printf "\e[32mNo remediation Needed\e[0m\n"
+    printf "\e[32mNo remediation needed\e[0m\n"
 else    
     sed -i 's/^#Protocol[[:space:]]2/Protocol 2/' /etc/ssh/sshd_config
     printf "\e[32mSSH Protocol is set to 2\e[0m\n"      
