@@ -332,6 +332,7 @@ if authconfig --test | grep hashing | grep sha512 ; then
     printf "\e[32mNo remediation needed\e[0m\n"
 else
     authconfig --passalgo=sha512 --update
+    cat /etc/passwd | awk -F: '($3 >= 1000 && $1 != "nfsnobody") {print $1}' | \xargs -n 1 chage -d 0
     printf "\e[32mPassword-hashing algorthim is set to SHA-512\e[0m\n"
 fi
 
