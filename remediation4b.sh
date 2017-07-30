@@ -427,10 +427,10 @@ fi
 
 #11.6 Restrict Access to the su Command 
 printf "Checking for restrict access to su command:\n"
-if cat /etc/pam.d/su | grep "^auth            required        pam_wheel.so use_uid"; then
+if grep "^auth		required	pam_wheel.so use_uid" "/etc/pam.d/su"; then
     printf "\e[32mNo remediation needed\e[0m\n"
 else
-    echo -e "auth            required        pam_wheel.so use_uid" >> /etc/pam.d/su
+    echo -e "auth		required	pam_wheel.so use_uid" >> /etc/pam.d/su
     printf "\e[32mRestrict access has been set\e[0m\n"
 fi
 
@@ -440,4 +440,5 @@ else
     usermod -aG wheel root
     printf "\e[32mUser added\e[0m\n"
 fi
+
 
