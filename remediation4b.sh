@@ -275,7 +275,7 @@ fi
 
 #10.12 Limit Access via SSH 
 printf "Checking access via SSH:\n"
-remsshalwusrs=`grep "^.*AllowUsers.*" /etc/ssh/sshd_config`
+remsshalwusrs=`grep "^AllowUsers" /etc/ssh/sshd_config`
 remsshalwgrps=`grep "^AllowGroups" /etc/ssh/sshd_config`
 remsshdnyusrs=`grep "^DenyUsers" /etc/ssh/sshd_config`
 remsshdnygrps=`grep "^DenyGroups" /etc/ssh/sshd_config`
@@ -408,12 +408,11 @@ fi
 
 #11.4 Limit Password Reuse
 printf "Checking for Limit Password Reuse:\n"
-pamlimitpw=$(grep "remember" /etc/pam.d/system-auth)
-if [[ $pamlimitpw == *"remember=5"* ]]; then
-    echo "No remediation needed"
+if grep "remember" /etc/pam.d/system-auth; then
+    printf "\e[32mNo remediation needed\e[0m\n"
 else
-        sed -i -e 's/password.*sufficient.*/password\tsufficient\tpam_unix.so sha512 shadow nullok remember=5 try_first_pass use_authtok/' /etc/pam.d/system-auth
-        echo "Limit pasword reuse has been set"
+    sed -i -e 's/password.*sufficient.*/password\tsufficient\tpam_unix.so sha512 shadow nullok remember=5 try_first_pass use_authtok/' /etc/pam.d/system-auth
+    printf "\e[32mLimit password reuse has been set\e[0m\n"
 fi
 
 #11.5 Restrict root Login to System Console
