@@ -1,3 +1,4 @@
+#!/bin/bash 
 #11.1 Upgrade Password Hashing Algorithm to SHA-512
 printf "Checking if the password-hashing algorithm is set to SHA-512:\n"
 if authconfig --test | grep hashing | grep sha512 ; then
