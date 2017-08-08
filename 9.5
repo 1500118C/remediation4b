@@ -1,3 +1,4 @@
+#!/bin/bash 
 #9.5 Set User/Group Owner and Permission on /etc/cron.[hourly,daily,weekly,monthly]
 printf "Checking if /etc/cron.hourly has the correct permissions:\n"
 if ls -ld /etc/cron.hourly | grep -e drwx------ ; then # Modify the file permissions to allow only users to read, write and execute
