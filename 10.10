@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #10.10 Use only approved cipher in counter mode 
 printf "Checking if only approved cipher is used in counter mode:\n"
 if grep "^Ciphers aes128-ctr,aes192-ctr,aes256-ctr" "/etc/ssh/sshd_config"; then       
