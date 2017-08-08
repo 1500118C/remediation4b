@@ -1,3 +1,4 @@
+#!/bin/bash 
 #11.6 Restrict Access to the su Command 
 printf "Checking for restrict access to su command:\n"
 if grep "^auth		required	pam_wheel.so use_uid" "/etc/pam.d/su"; then
