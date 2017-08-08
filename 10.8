@@ -1,3 +1,4 @@
+#!/bin/bash 
 #10.8 Disable SSH Root Login
 printf "Checking if SSH Root login is disabled:\n"
 if grep "^PermitRootLogin[[:space:]]no" "/etc/ssh/sshd_config"; then       
