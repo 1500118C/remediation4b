@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #10.11 Set Idle Timeout Interval for User Login
 printf "Checking if ClientAliveInterval is set to 300:\n"
 if grep "^ClientAliveInterval[[:space:]]300" "/etc/ssh/sshd_config"; then
