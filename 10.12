@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #10.12 Limit Access via SSH 
 printf "Checking access via SSH:\n"
 remsshalwusrs=`grep "^AllowUsers" /etc/ssh/sshd_config`
