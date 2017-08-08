@@ -1,3 +1,4 @@
+#!/bin/bash 
 #9.1 Enable anacron Daemon
 printf "Checking if anacron is enabled:\n"
 if rpm -q cronie-anacron | grep "not installed" ; then # Install the package if it hasnt already been installed
