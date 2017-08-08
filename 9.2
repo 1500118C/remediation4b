@@ -1,3 +1,4 @@
+#!/bin/bash 
 #9.2 Enable crond Daemon
 printf "Checking if cron is enabled:\n"
 if systemctl is-enabled crond | grep "enabled" ; then # Enable crond if it hasnt been enabled yet
