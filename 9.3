@@ -1,3 +1,4 @@
+#!/bin/bash 
 #9.3  Set User/Group Owner and Permission on /etc/anacrontab
 printf "Checking if the /etc/anacrontab file has the correct permissions:\n"
 if ls -l /etc/anacrontab | grep -e -rw------- ; then # Modify the file permissions to allow only users to read and write
