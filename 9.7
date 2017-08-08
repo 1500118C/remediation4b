@@ -1,3 +1,4 @@
+#!/bin/bash 
 #9.7 Restrict at Daemon
 printf "Checking if at jobs are restricted:\n"
 if ! stat -L /etc/at.deny > /dev/null | grep "No such file or directory" ; then # Remove file if it hasnt been removed
